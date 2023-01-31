@@ -39,7 +39,7 @@ function Header() {
             whileHover='hover'
             animate='rest'
           >
-            <h3>Star us</h3>
+            <h3>Star Me</h3>
 
             <motion.h3 variants={buttonVariant}>⭐️</motion.h3>
           </motion.div>
