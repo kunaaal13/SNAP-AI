@@ -1,4 +1,5 @@
 import Description from '@/components/Home/Description'
+import ExampleContainer from '@/components/Home/ExampleContainer'
 import Header from '@/components/Home/Header'
 import Intro from '@/components/Home/Intro'
 
@@ -11,6 +12,8 @@ export default function Home() {
       </div>
 
       <Description />
+
+      <ExampleContainer />
     </div>
   )
 }

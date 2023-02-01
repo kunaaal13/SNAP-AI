@@ -7,21 +7,23 @@ import { motion } from 'framer-motion'
 const containerVariants = {
   initial: {
     opacity: 0,
+    scale: 0.5,
     x: 100,
     transition: {
-      duration: 1.5,
-      type: 'tween',
-      ease: 'easeOut',
+      duration: 0.5,
+      type: 'spring',
+      stiffness: 100,
     },
   },
 
   whileInView: {
     opacity: 1,
+    scale: 1,
     x: 0,
     transition: {
-      duration: 1.5,
-      type: 'tween',
-      ease: 'easeOut',
+      duration: 0.5,
+      type: 'spring',
+      stiffness: 100,
     },
   },
 }
