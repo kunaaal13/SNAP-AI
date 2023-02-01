@@ -1,11 +1,16 @@
+import Description from '@/components/Home/Description'
 import Header from '@/components/Home/Header'
 import Intro from '@/components/Home/Intro'
 
 export default function Home() {
   return (
-    <div className='p-4 md:p-10 text-white'>
-      <Header />
-      <Intro />
+    <div className='overflow-x-hidden p-4 text-white md:p-10'>
+      <div className='flex min-h-screen flex-col justify-center'>
+        <Header />
+        <Intro />
+      </div>
+
+      <Description />
     </div>
   )
 }

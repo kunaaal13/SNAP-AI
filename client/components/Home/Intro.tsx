@@ -1,108 +1,70 @@
 'use client'
 
-import { useMotionValue, useTransform, motion } from 'framer-motion'
-import { useState } from 'react'
+import { useEffect, useRef } from 'react'
+import VanillaTilt from 'vanilla-tilt'
+import { motion } from 'framer-motion'
+
+const containerVariants = {
+  initial: {
+    opacity: 0,
+    x: 100,
+    transition: {
+      duration: 1.5,
+      type: 'tween',
+      ease: 'easeOut',
+    },
+  },
+
+  whileInView: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 1.5,
+      type: 'tween',
+      ease: 'easeOut',
+    },
+  },
+}
 
 function Intro() {
-  //   const angle = 20
+  const ref = useRef<HTMLDivElement>(null)
 
-  //   const x = useMotionValue(0.5)
-  //   const y = useMotionValue(0.5)
+  useEffect(() => {
+    const options = {
+      max: 10,
+      speed: 400,
+      gyroscope: false,
+    }
 
-  //   // const rotateX = useTransform(x, [0, 0.5, 1], [-angle, 0, angle])
-  //   // if x is greater than 0.5, then rotateX is positive else negative
+    if (!ref.current) return
 
-  //   const rotateX = useTransform(x, (value) => {
-  //     // if hovered on left then card must tilt to the left
-  //     // if hovered on right then card must tilt to the right
-  //     if (value > 0.5) {
-  //       return angle
-  //     } else if (value == 0.5) {
-  //       return 0
-  //     } else {
-  //       return -angle
-  //     }
-  //   })
-  //   const rotateY = useTransform(y, (value) => {
-  //     // if hovered on top then card must tilt to the top
-  //     // if hovered on bottom then card must tilt to the bottom
-  //     if (value > 0.5) {
-  //       return angle
-  //     } else if (value == 0.5) {
-  //       return 0
-  //     } else {
-  //       return -angle
-  //     }
-  //   })
-
-  //   const onMove = (e: any) => {
-  //     // get the mouse position
-  //     // get position information for the card
-  //     // get position information for the card
-  //     const bounds = e.currentTarget.getBoundingClientRect()
-
-  //     // set x,y local coordinates
-  //     const xValue = (e.clientX - bounds.x) / e.currentTarget.clientWidth
-  //     const yValue = (e.clientY - bounds.y) / e.currentTarget.clientHeight
-
-  //     // update MotionValues
-  //     console.log(xValue, yValue)
-  //     x.set(xValue, true)
-  //     y.set(yValue, true)
-  //   }
-
-  const [rotateX, setRotateX] = useState(0)
-  const [rotateY, setRotateY] = useState(0)
-
-  const onMove = (e: any) => {
-    const { clientX, clientY, currentTarget } = e
-    const { clientWidth, clientHeight, offsetLeft, offsetTop } = currentTarget
-    const THRESHOLD = 15
-
-    const horizontal = (clientX - offsetLeft) / clientWidth
-    const vertical = (clientY - offsetTop) / clientHeight
-
-    setRotateX(-(THRESHOLD / 2 - horizontal * THRESHOLD).toFixed(2))
-    setRotateY(-(vertical * THRESHOLD - THRESHOLD / 2).toFixed(2))
-  }
+    VanillaTilt.init(ref.current, options)
+  }, [])
 
   return (
-    <div className='w-full my-20 flex justify-center'>
+    <div className='my-20 flex w-full justify-center'>
       <motion.div
-        onMouseLeave={() => {
-          // Reset the rotation
-          setRotateX(0)
-          setRotateY(0)
-        }}
-        whileHover={{
-          rotateX: rotateX,
-          rotateY: rotateY,
-          transition: {
-            type: 'spring',
-            duration: 0.1,
-          },
-        }}
-        style={{
-          perspective: 500,
-        }}
-        onPointerMove={onMove}
-        className='w-full h-full md:w-5/6 p-2 lg:px-4 py-10 flex flex-col items-center border'
+        variants={containerVariants}
+        initial='initial'
+        whileInView='whileInView'
+        className='flex h-full w-full flex-col items-center p-2 py-10 md:w-5/6 lg:px-4'
+        ref={ref}
       >
         {/* Title */}
-        <h1 className='text-3xl font-bold sm:text-4xl md:text-6xl lg:text-7xl md:font-black tracking-wide'>
+        <h1 className='text-3xl font-bold tracking-wide sm:text-4xl md:text-6xl md:font-black lg:text-7xl'>
           Hello. I'm Snap AI.
         </h1>
 
         {/* Line 1 */}
-        <div className='bg-[#161616] mt-10 p-8 rounded-lg border border-[#525252] select-none'>
-          <h2 className='text-xl sm:text-2xl md:text-5xl lg:text-6xl font-bold lg:tracking-wide'>
+        <div className='mt-10 select-none rounded-3xl border border-[#525252] bg-[#161616] p-8'>
+          <h2 className='text-xl font-bold sm:text-2xl md:text-5xl lg:text-6xl lg:tracking-wide'>
             Unleash creativity
           </h2>
         </div>
 
         {/* Line 2 */}
-        <div className='bg-[#161616] mt-10 p-8 rounded-lg border border-[#525252] select-none'>
-          <h2 className='text-xl sm:text-2xl md:text-5xl lg:text-6xl font-bold lg:tracking-wide'>
+        <div className='mt-10 select-none rounded-3xl border border-[#525252] bg-[#161616] p-8'>
+          <h2 className='text-xl font-bold sm:text-2xl md:text-5xl lg:text-6xl lg:tracking-wide'>
             Generate images
           </h2>
         </div>

@@ -5,22 +5,49 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 
 const buttonVariant = {
-  rest: { display: 'none', ease: 'easeOut', duration: 1, type: 'tween' },
+  rest: { display: 'none', ease: 'easeOut', duration: 0.8, type: 'tween' },
   hover: {
     display: 'inline-flex',
     rotate: 360,
     transition: {
-      duration: 1,
+      duration: 0.8,
       type: 'tween',
       ease: 'easeIn',
     },
   },
 }
 
+const HeaderVariants = {
+  initial: {
+    opacity: 0,
+    y: -100,
+    transition: {
+      duration: 0.5,
+      type: 'tween',
+      ease: 'easeIn',
+    },
+  },
+
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      type: 'tween',
+      ease: 'easeOut',
+    },
+  },
+}
+
 function Header() {
   return (
-    <header className='w-full h-16 flex justify-center'>
-      <div className='w-full h-full md:w-3/5 border border-[#525252] rounded-full flex items-center justify-between p-4'>
+    <header className='flex h-16 w-full justify-center'>
+      <motion.div
+        initial='initial'
+        animate='animate'
+        variants={HeaderVariants}
+        className='flex h-full w-full items-center justify-between rounded-full border border-[#525252] p-4 md:w-3/5'
+      >
         {/* Logo */}
         <Image
           src='/Logo.svg'
@@ -34,7 +61,7 @@ function Header() {
         {/* Star us on Github */}
         <Link href={'https://github.com/kunaaal13/SNAP-AI'}>
           <motion.div
-            className='flex items-center bg-[#1a6eff] hover:bg-[#0058ef] rounded-full h-10 px-4 space-x-2 cursor-pointer font-semibold'
+            className='flex h-10 cursor-pointer items-center space-x-2 rounded-full bg-[#1a6eff] px-6 font-semibold hover:bg-[#0058ef]'
             initial='rest'
             whileHover='hover'
             animate='rest'
@@ -44,7 +71,7 @@ function Header() {
             <motion.h3 variants={buttonVariant}>⭐️</motion.h3>
           </motion.div>
         </Link>
-      </div>
+      </motion.div>
     </header>
   )
 }
