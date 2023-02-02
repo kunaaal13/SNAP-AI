@@ -24,6 +24,7 @@ router.route('/').post(async (req, res) => {
   try {
     // get prompt from request
     const { prompt } = req.body
+    console.log(prompt)
 
     const aiResponse = await openai.createImage({
       prompt,
@@ -33,6 +34,7 @@ router.route('/').post(async (req, res) => {
     })
 
     const image = aiResponse.data.data[0].b64_json
+    console.log(image)
 
     res.status(200).json({ photo: image })
   } catch (err) {

@@ -41,7 +41,6 @@ const starContainerVariant = {
   rest: {},
   hover: {
     border: '2px solid white',
-    backgroundColor: 'transparent',
     transition: {
       duration: 0.5,
       type: 'tween',
@@ -113,7 +112,7 @@ function Connect() {
             whileHover='hover'
             initial='rest'
             animate='rest'
-            className='my-8 flex cursor-pointer items-center justify-center space-x-2 rounded-full bg-[#383838] py-4 px-6 '
+            className='my-8 flex cursor-pointer items-center justify-center space-x-2 rounded-full bg-[#383838] py-4 px-6 hover:bg-transparent'
           >
             <h3 className='text-lg md:text-xl'>Star Me</h3>
 

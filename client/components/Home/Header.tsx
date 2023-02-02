@@ -8,8 +8,6 @@ const buttonVariant = {
   rest: { display: 'none', ease: 'easeOut', duration: 0.8, type: 'tween' },
   hover: {
     display: 'inline-flex',
-    translateX: 10,
-    translateY: -5,
     transition: {
       duration: 0.8,
       type: 'tween',
@@ -40,7 +38,7 @@ const HeaderVariants = {
   },
 }
 
-function Header() {
+function Header({ linkTitle }: { linkTitle: string }) {
   return (
     <header className='flex h-16 w-full justify-center'>
       <motion.div
@@ -50,24 +48,26 @@ function Header() {
         className='flex h-full w-full items-center justify-between rounded-full border border-[#525252] p-4 md:w-3/5'
       >
         {/* Logo */}
-        <Image
-          src='/Logo.svg'
-          width={32}
-          height={32}
-          alt='Logo'
-          className='cursor-pointer'
-          priority
-        />
+        <Link href='/'>
+          <Image
+            src='/Logo.svg'
+            width={32}
+            height={32}
+            alt='Logo'
+            className='cursor-pointer'
+            priority
+          />
+        </Link>
 
         {/* Star us on Github */}
-        <Link href={'https://github.com/kunaaal13/SNAP-AI'}>
+        <Link href={`/${linkTitle}`}>
           <motion.div
             className='flex h-10 cursor-pointer items-center space-x-2 rounded-full bg-[#1a6eff] px-6 font-semibold hover:bg-[#0058ef]'
             initial='rest'
             whileHover='hover'
             animate='rest'
           >
-            <h3>Generate</h3>
+            <h3 className='capitalize'>{linkTitle}</h3>
 
             <motion.h3 variants={buttonVariant}>🚀</motion.h3>
           </motion.div>
