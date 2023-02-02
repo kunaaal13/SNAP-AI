@@ -1,3 +1,4 @@
+import Connect from '@/components/Home/Connect'
 import Description from '@/components/Home/Description'
 import ExampleContainer from '@/components/Home/ExampleContainer'
 import Header from '@/components/Home/Header'
@@ -14,6 +15,8 @@ export default function Home() {
       <Description />
 
       <ExampleContainer />
+
+      <Connect />
     </div>
   )
 }

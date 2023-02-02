@@ -37,6 +37,7 @@ function ExampleCard({ card }: Props) {
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    // initialize vanilla tilt
     const options = {
       max: 10,
       speed: 400,
@@ -54,17 +55,17 @@ function ExampleCard({ card }: Props) {
         initial='hidden'
         variants={containerVariants}
         ref={ref}
-        className={`flex h-[70%] w-full items-center justify-center space-y-16 rounded-3xl bg-[url('/cardBg.svg')] p-2 py-10 md:w-4/5 lg:px-4`}
+        className={`flex h-[70%] w-full items-center justify-center space-y-16 rounded-2xl bg-[url('/cardBg.svg')] p-2 py-10 md:w-4/5 lg:px-4`}
       >
-        <div className='relative h-[90%] w-[80%] rounded-3xl shadow-2xl'>
+        <div className='relative h-[90%] w-[80%] rounded-2xl shadow-2xl'>
           <img
             src={card.imgSrc}
             alt={card.prompt}
             className='z-10 h-full w-full rounded-2xl'
           />
 
-          <div className='absolute bottom-0 w-full rounded-2xl bg-[rgba(0,0,0,.5)]'>
-            <h3 className='text-center text-lg'>{card.prompt}</h3>
+          <div className='absolute bottom-0 w-full rounded-xl bg-[rgba(0,0,0,.5)]'>
+            <h3 className='w-full text-center text-lg'>{card.prompt}</h3>
           </div>
         </div>
       </motion.div>

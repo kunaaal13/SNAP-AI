@@ -8,7 +8,8 @@ const buttonVariant = {
   rest: { display: 'none', ease: 'easeOut', duration: 0.8, type: 'tween' },
   hover: {
     display: 'inline-flex',
-    rotate: 360,
+    translateX: 10,
+    translateY: -5,
     transition: {
       duration: 0.8,
       type: 'tween',
@@ -66,9 +67,9 @@ function Header() {
             whileHover='hover'
             animate='rest'
           >
-            <h3>Star Me</h3>
+            <h3>Generate</h3>
 
-            <motion.h3 variants={buttonVariant}>⭐️</motion.h3>
+            <motion.h3 variants={buttonVariant}>🚀</motion.h3>
           </motion.div>
         </Link>
       </motion.div>
