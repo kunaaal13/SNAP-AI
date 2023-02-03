@@ -78,22 +78,20 @@ function ImgContainer({ image, prompt }: Props) {
         transition={{ duration: 0.5, type: 'spring', stiffness: 100 }}
         className='my-10 flex w-full flex-col items-center justify-between md:flex-row'
       >
-        <motion.div className='w-full rounded-md border md:w-1/3'>
+        <motion.div className='w-full rounded-md border md:w-2/5'>
           <img src={image} alt='generated' className='w-full rounded-md' />
         </motion.div>
 
         {/* Share With Community */}
-        <div className='mt-10 flex flex-col items-center space-y-7 md:mt-0 '>
-          <h3 className='text-center text-lg font-semibold md:text-xl'>
-            {prompt}
-          </h3>
+        <div className='mt-10 flex w-full flex-col items-center space-y-7 md:mt-0 md:w-3/5'>
+          <h3 className='text-center font-semibold md:text-xl'>{prompt}</h3>
 
           <div className='flex items-center justify-center space-x-4'>
             <motion.div
               whileHover={{ borderColor: '#1a6eff' }}
               transition={{ duration: 0.2 }}
               onClick={shareWithCommunity}
-              className='cursor-pointer rounded-full  border bg-transparent px-5 py-2 text-lg font-semibold'
+              className='cursor-pointer rounded-full  border bg-transparent px-5 py-2 text-base font-semibold md:text-lg'
             >
               Share
             </motion.div>
@@ -101,7 +99,7 @@ function ImgContainer({ image, prompt }: Props) {
             {/* Download */}
             <div
               onClick={download}
-              className='cursor-pointer rounded-full bg-[#1a6eff] px-5 py-2 text-lg font-semibold hover:bg-[#0058ef]'
+              className='cursor-pointer rounded-full bg-[#1a6eff] px-5 py-2 text-base font-semibold hover:bg-[#0058ef] md:text-lg'
             >
               Download
             </div>

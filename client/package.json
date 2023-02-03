@@ -24,6 +24,7 @@
     "vanilla-tilt": "^1.8.0"
   },
   "devDependencies": {
+    "@tailwindcss/line-clamp": "^0.4.2",
     "@types/file-saver": "^2.0.5",
     "autoprefixer": "^10.4.13",
     "postcss": "^8.4.21",

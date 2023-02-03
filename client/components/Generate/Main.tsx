@@ -122,19 +122,17 @@ function Main() {
         <div className='flex items-center justify-center'>
           <div
             onClick={surpriseMe}
-            className='cursor-pointer rounded-full bg-[#1a6eff] px-5 py-2 text-lg font-semibold hover:bg-[#0058ef]'
+            className='cursor-pointer rounded-full bg-[#1a6eff] px-5 py-2 text-base font-semibold hover:bg-[#0058ef] md:text-lg'
           >
             Surprise Me
           </div>
         </div>
 
         {/* Image */}
-        <AnimatePresence>
-          {
-            // show image if image is not empty
-            image !== '' && <ImgContainer image={image} prompt={prompt} />
-          }
-        </AnimatePresence>
+        {
+          // show image if image is not empty
+          image !== '' && <ImgContainer image={image} prompt={prompt} />
+        }
       </motion.div>
     </div>
   )
