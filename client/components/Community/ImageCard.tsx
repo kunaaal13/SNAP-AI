@@ -4,6 +4,8 @@ import { motion } from 'framer-motion'
 import { useState } from 'react'
 import downloadImage from '../../utils/downloadImage'
 import { AiOutlineCloudDownload } from 'react-icons/ai'
+import { VscCopy } from 'react-icons/vsc'
+import { toast, Toaster } from 'react-hot-toast'
 
 type Props = {
   image: image
@@ -37,10 +39,20 @@ function ImageCard({ image }: Props) {
     downloadImage(image.photo)
   }
 
+  // function to copy prompt
+  const copyPrompt = () => {
+    // copy prompt
+    navigator.clipboard.writeText(image.prompt)
+    toast.success('Prompt copied to clipboard', {
+      duration: 1500,
+    })
+  }
+
   const [isHovered, setIsHovered] = useState(false)
 
   return (
-    <div className='group relative group-hover:scale-105'>
+    <div className='group relative'>
+      <Toaster />
       <motion.img
         variants={imageVariants}
         initial='hidden'
@@ -54,10 +66,17 @@ function ImageCard({ image }: Props) {
       />
 
       <div
-        className='absolute bottom-2 right-2 cursor-pointer rounded-full bg-gray-500 p-2 opacity-60 hover:opacity-90'
+        className='absolute bottom-2 right-2 hidden cursor-pointer rounded-full bg-gray-500 p-2 opacity-60 hover:opacity-90 group-hover:inline-flex'
         onClick={download}
       >
         <AiOutlineCloudDownload className='text-2xl text-white' />
+      </div>
+
+      <div
+        onClick={copyPrompt}
+        className='absolute bottom-2 left-2 hidden cursor-pointer rounded-full bg-gray-500 p-2 opacity-60 hover:opacity-90 group-hover:inline-flex'
+      >
+        <VscCopy className='text-2xl text-white' />
       </div>
     </div>
   )
