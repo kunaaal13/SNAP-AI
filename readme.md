@@ -21,15 +21,15 @@ Hello, I'm Snap AI, a next generation AI image generator. I turn your thoughts i
 
 ### Home Page
 
-![App Screenshot](/images/Home1.png)
+![App Screenshot](/images/Home.png)
 
 ### Generate Page
 
-![App Screenshot](/images/Generate1.png)
+![App Screenshot](/images/Generate.png)
 
 ### Community Page
 
-![App Screenshot](/images/Community1.png)
+![App Screenshot](/images/Community.png)
 
 ## Environment Variables
 
