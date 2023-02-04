@@ -1,7 +1,7 @@
 export default async function getImages() {
   try {
     // Fetch images from the server and return them
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/post/`, {
+    const res = await fetch(`${process.env.API_BASE_URL}/post/`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
