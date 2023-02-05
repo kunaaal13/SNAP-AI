@@ -7,7 +7,7 @@ import Intro from '@/components/Home/Intro'
 export default function Home() {
   return (
     <div className='overflow-x-hidden p-4 text-white md:p-10'>
-      <div className='flex min-h-screen flex-col justify-center'>
+      <div className='flex min-h-screen flex-col'>
         <Header linkTitle='generate' />
         <Intro />
       </div>

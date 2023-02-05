@@ -1,10 +1,9 @@
 'use client'
 
 import getSurpriseMe from '@/utils/getSurpriseMe'
+import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { toast, Toaster } from 'react-hot-toast'
-import { motion, AnimatePresence } from 'framer-motion'
-import downloadImage from '@/utils/downloadImage'
 import ImgContainer from './ImgContainer'
 
 const containerVariants = {
@@ -32,7 +31,7 @@ function Main() {
   const [image, setImage] = useState('')
   const [prompt, setPrompt] = useState('')
 
-  const surpriseMe = () => {
+  const randomPrompt = () => {
     // get a random surprise me prompt
     setInput(getSurpriseMe)
   }
@@ -121,10 +120,10 @@ function Main() {
         {/* Surprise me */}
         <div className='flex items-center justify-center'>
           <div
-            onClick={surpriseMe}
+            onClick={randomPrompt}
             className='cursor-pointer rounded-full bg-[#1a6eff] px-5 py-2 text-base font-semibold hover:bg-[#0058ef] md:text-lg'
           >
-            Surprise Me
+            Random Prompt
           </div>
         </div>
 

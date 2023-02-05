@@ -81,8 +81,8 @@ function Connect() {
               }}
               className='flex cursor-pointer items-center justify-center space-x-2 rounded-full bg-[#1a6eff] py-4 px-6'
             >
-              <VscTwitter className='text-2xl text-white' />
-              <p className='text-lg md:text-xl'>Twitter</p>
+              <VscTwitter className='text-xl text-white sm:text-2xl' />
+              <p className='text-base sm:text-lg md:text-xl'>Twitter</p>
             </motion.div>
           </Link>
 
@@ -99,8 +99,8 @@ function Connect() {
               }}
               className='flex cursor-pointer items-center justify-center space-x-2 rounded-full border-2 border-white py-4 px-6'
             >
-              <VscMail className='text-2xl text-white' />
-              <p className='text-lg md:text-xl'>E-mail</p>
+              <VscMail className='text-xl text-white sm:text-2xl' />
+              <p className='text-base sm:text-lg md:text-xl'>E-mail</p>
             </motion.div>
           </Link>
         </div>
@@ -114,9 +114,9 @@ function Connect() {
             animate='rest'
             className='my-8 flex cursor-pointer items-center justify-center space-x-2 rounded-full bg-[#383838] py-4 px-6 hover:bg-transparent'
           >
-            <h3 className='text-lg md:text-xl'>Star Me</h3>
+            <h3 className='text-base sm:text-lg md:text-xl'>Star Me</h3>
 
-            <motion.h3 variants={starVariant} className='text-lg md:text-xl'>
+            <motion.h3 variants={starVariant} className='text-xl md:text-2xl'>
               ⭐
             </motion.h3>
           </motion.div>

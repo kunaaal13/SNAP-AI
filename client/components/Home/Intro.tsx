@@ -7,13 +7,8 @@ import { motion } from 'framer-motion'
 const containerVariants = {
   initial: {
     opacity: 0,
-    scale: 0.5,
+    scale: 0,
     x: 100,
-    transition: {
-      duration: 0.5,
-      type: 'spring',
-      stiffness: 100,
-    },
   },
 
   whileInView: {
@@ -44,7 +39,7 @@ function Intro() {
   }, [])
 
   return (
-    <div className='my-20 flex w-full justify-center'>
+    <div className='my-20 flex h-full w-full items-center justify-center'>
       <motion.div
         variants={containerVariants}
         initial='initial'

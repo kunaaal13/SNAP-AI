@@ -20,11 +20,6 @@ const HeaderVariants = {
   initial: {
     opacity: 0,
     y: -100,
-    transition: {
-      duration: 0.5,
-      type: 'tween',
-      ease: 'easeIn',
-    },
   },
 
   animate: {
@@ -40,7 +35,7 @@ const HeaderVariants = {
 
 function Header({ linkTitle }: { linkTitle: string }) {
   return (
-    <header className='flex h-16 w-full justify-center'>
+    <header className='mt-5 flex h-16 w-full justify-center'>
       <motion.div
         initial='initial'
         animate='animate'
@@ -67,7 +62,7 @@ function Header({ linkTitle }: { linkTitle: string }) {
             whileHover='hover'
             animate='rest'
           >
-            <h3 className='capitalize'>{linkTitle}</h3>
+            <h3 className='text-sm capitalize sm:text-base'>{linkTitle}</h3>
 
             <motion.h3 variants={buttonVariant}>🚀</motion.h3>
           </motion.div>
