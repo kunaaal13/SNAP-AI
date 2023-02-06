@@ -17,7 +17,7 @@ function Main({ res }: Props) {
 
   return (
     <div className='my-20 flex w-full items-center justify-center'>
-      <div className='w-full columns-1 gap-8 sm:columns-2 md:w-5/6 md:columns-3 lg:columns-4'>
+      <div className='grid w-full grid-cols-2 gap-8 sm:w-5/6 md:grid-cols-3 lg:grid-cols-4'>
         {data.map((image, i) => (
           <ImageCard image={image} key={image._id} />
         ))}

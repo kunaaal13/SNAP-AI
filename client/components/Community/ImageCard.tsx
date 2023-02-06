@@ -1,11 +1,11 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useState } from 'react'
-import downloadImage from '../../utils/downloadImage'
+import Image from 'next/image'
+import { toast, Toaster } from 'react-hot-toast'
 import { AiOutlineCloudDownload } from 'react-icons/ai'
 import { VscCopy } from 'react-icons/vsc'
-import { toast, Toaster } from 'react-hot-toast'
+import downloadImage from '../../utils/downloadImage'
 
 type Props = {
   image: image
@@ -21,7 +21,7 @@ const imageVariants = {
     },
   },
   hidden: {
-    scale: 0.5,
+    scale: 0,
     transition: {
       duration: 0.8,
       type: 'spring',
@@ -31,9 +31,6 @@ const imageVariants = {
 }
 
 function ImageCard({ image }: Props) {
-  // generate random aspect ratio for images
-  const random = Math.floor(Math.random() * 10) + 1
-
   const download = () => {
     // download image
     downloadImage(image.photo)
@@ -48,21 +45,20 @@ function ImageCard({ image }: Props) {
     })
   }
 
-  const [isHovered, setIsHovered] = useState(false)
-
   return (
-    <div className='group relative'>
+    <motion.div
+      className={`group relative `}
+      variants={imageVariants}
+      initial='hidden'
+      animate='visible'
+    >
       <Toaster />
-      <motion.img
-        variants={imageVariants}
-        initial='hidden'
-        animate='visible'
+      <Image
         src={image.photo}
         alt={image._id}
-        key={image._id}
-        className={`${
-          random % 3 === 0 ? 'aspect-square sm:aspect-[9/16]' : 'aspect-square'
-        } mb-8 w-full rounded-md`}
+        className={`h-full w-full rounded-md`}
+        height={300}
+        width={300}
       />
 
       <div
@@ -78,7 +74,7 @@ function ImageCard({ image }: Props) {
       >
         <VscCopy className='text-2xl text-white' />
       </div>
-    </div>
+    </motion.div>
   )
 }
 
