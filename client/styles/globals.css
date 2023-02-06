@@ -13,11 +13,15 @@ body {
 }
 
 .card {
-  background-color: #a299ff;
-  background-image: radial-gradient(
-      at 80% 50%,
-      hsla(289, 87%, 64%, 0) 0px,
-      transparent 50%
-    ),
-    radial-gradient(at 71% 72%, hsla(230, 65%, 63%, 1) 0px, transparent 50%);
+  background: #c9d6ff; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #e2e2e2,
+    #c9d6ff
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #e2e2e2,
+    #c9d6ff
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }

@@ -55,16 +55,23 @@ function ExampleCard({ card }: Props) {
         initial='hidden'
         variants={containerVariants}
         ref={ref}
-        className={`flex h-[70%] w-full items-center justify-center space-y-16 rounded-2xl bg-[url('/cardBg.svg')] p-2 py-10 md:w-4/5 lg:px-4`}
+        className={`flex h-[70%] w-full items-center justify-center
+        space-y-16
+        rounded-2xl
+        bg-gradient-radial from-indigo-200 via-pink-200 to-violet-300 p-2 py-10 md:w-4/5 lg:px-4`}
+
+        // bg-[url('/cardBg.svg')]
       >
-        <div className='relative h-[90%] w-[80%] rounded-2xl shadow-2xl'>
-          <img
+        <div className='relative block h-[90%] w-[80%] rounded-2xl shadow-2xl'>
+          <Image
             src={card.imgSrc}
             alt={card.prompt}
             className='z-10 h-full w-full rounded-2xl'
+            fill={true}
+            sizes='100%'
           />
 
-          <div className='absolute bottom-0 w-full rounded-xl bg-[rgba(0,0,0,.5)]'>
+          <div className='absolute bottom-0 z-10 w-full rounded-xl bg-[rgba(0,0,0,.5)]'>
             <h3 className='w-full text-center text-lg'>{card.prompt}</h3>
           </div>
         </div>
