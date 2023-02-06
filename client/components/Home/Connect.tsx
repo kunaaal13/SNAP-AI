@@ -62,10 +62,10 @@ function Connect() {
           Let's Connect
         </h1>
 
-        <h3 className='my-10 text-center text-xl font-light leading-10 text-[#c6c6c6] md:text-2xl'>
+        <h2 className='my-10 text-center text-xl font-light leading-10 text-[#c6c6c6] md:text-2xl'>
           Want to join me in my journey? Show some love and connect with
           Kunaaal!
-        </h3>
+        </h2>
 
         <div className='flex w-full items-center justify-center space-x-6'>
           {/* Twitter */}

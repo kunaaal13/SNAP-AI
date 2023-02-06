@@ -36,10 +36,10 @@ function Description() {
           My Work
         </h1>
 
-        <h3 className='mx-2 text-center text-lg font-light leading-10 text-[#c6c6c6] md:text-xl lg:text-2xl'>
+        <h2 className='mx-2 text-center text-lg font-light leading-10 text-[#c6c6c6] md:text-xl lg:text-2xl'>
           Unleash your creativity with me, the revolutionary new AI tool that
           generates beautiful images from your prompts.
-        </h3>
+        </h2>
       </motion.div>
     </main>
   )
